@@ -66,7 +66,10 @@ export function useGardenData() {
 
     const fetchGardenConnector = async () => {
       try {
-        const gardenConnector = await connectGarden(organization)
+        const gardenConnector = await connectGarden(organization, {
+          subgraphUrl:
+            'https://api.thegraph.com/subgraphs/name/1hive/gardens-xdai-staging',
+        })
 
         if (!cancelled) {
           setConnector(gardenConnector)

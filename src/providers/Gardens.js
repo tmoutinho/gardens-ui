@@ -116,7 +116,11 @@ function useGardensList(queryFilters, filters) {
         setLoading(true)
 
         const result = await getGardens(
-          { network: getNetwork().chainId },
+          {
+            network: getNetwork().chainId,
+            subgraphUrl:
+              'https://api.thegraph.com/subgraphs/name/1hive/gardens-xdai-staging',
+          },
           { ...sorting.queryArgs }
         )
 
