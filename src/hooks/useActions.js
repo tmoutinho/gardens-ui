@@ -27,7 +27,7 @@ const GAS_LIMIT = 450000
 const RESOLVE_GAS_LIMIT = 700000
 const SIGN_GAS_LIMIT = 100000
 const STAKE_GAS_LIMIT = 250000
-const WRAP_GAS_LIMIT = 1000000
+const WRAP_GAS_LIMIT = 1500000
 
 export default function useActions() {
   const { account, ethers } = useWallet()
