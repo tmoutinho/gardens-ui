@@ -25,6 +25,7 @@ import { useDebounce } from '@/hooks/useDebounce'
 
 import { getVoidedGardensByNetwork } from '../voided-gardens'
 import { useWallet } from './Wallet'
+import { getNetwork } from '@/networks'
 
 const DAOContext = React.createContext()
 
@@ -130,6 +131,8 @@ function useGardensList(queryFilters, filters) {
   const [refetchTriger, setRefetchTriger] = useState(false)
   const { preferredNetwork } = useWallet()
 
+  const { subgraphs } = getNetwork(preferredNetwork)
+
   const { sorting } = queryFilters
 
   const [gardensMetadata, loadingMetadata] = useGardensMetadata(
@@ -154,8 +157,7 @@ function useGardensList(queryFilters, filters) {
         const result = await getGardens(
           {
             network: preferredNetwork,
-            subgraphUrl:
-              'https://api.thegraph.com/subgraphs/name/1hive/gardens-xdai-staging',
+            subgraphUrl: subgraphs.gardens,
           },
           { ...sorting.queryArgs }
         )
@@ -171,7 +173,7 @@ function useGardensList(queryFilters, filters) {
     }
 
     fetchGardens()
-  }, [preferredNetwork, refetchTriger, sorting.queryArgs])
+  }, [preferredNetwork, refetchTriger, sorting.queryArgs, subgraphs.gardens])
 
   return [filteredGardens, gardensMetadata, loading || loadingMetadata, reload]
 }
