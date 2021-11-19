@@ -16,7 +16,7 @@ const networks = {
     type: 'rinkeby',
     arbitrator: '0x35e7433141D5f7f2EB7081186f5284dCDD2ccacE',
     disputeManager: '0xc1f1c30878de30fd3ac3db7eacdd33a70c7110bd',
-    template: '0xBdF8954E7439E3c7d70311c5dA67B0fF786f88bD',
+    template: '0xF8A030177865356E2Be8fb5F95a19962E6b57E3e',
     celesteUrl: 'https://celeste-rinkeby.1hive.org/#',
     explorer: 'etherscan',
 
@@ -41,7 +41,7 @@ const networks = {
     defaultEthNode: XDAI_ETH_NODE,
     arbitrator: '0x44E4fCFed14E1285c9e0F6eae77D5fDd0F196f85',
     disputeManager: '0xec7904e20b69f60966d6c6b9dc534355614dd922',
-    template: '0x6d4466b9772dc5d2852ca7cea42f072a44200176',
+    template: '0x82a127b5Be3E04cd06AA034c1616b4d098616E9D',
     celesteUrl: 'https://celeste.1hive.org/#',
     explorer: 'blockscout',
 
