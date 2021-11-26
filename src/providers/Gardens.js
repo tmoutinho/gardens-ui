@@ -49,12 +49,12 @@ export function useGardens() {
   return useContext(DAOContext)
 }
 
-function useFilteredGardens(gardens, gardensMetadata, filters, chainId) {
+function useFilteredGardens(gardens, gardensMetadata, filters) {
   const debouncedNameFilter = useDebounce(filters.name.filter, 300)
 
   return useMemo(() => {
     const mergedGardens = gardens.map(garden =>
-      mergeGardenMetadata(garden, gardensMetadata, chainId)
+      mergeGardenMetadata(garden, gardensMetadata)
     )
     if (!debouncedNameFilter) {
       return mergedGardens
@@ -62,7 +62,7 @@ function useFilteredGardens(gardens, gardensMetadata, filters, chainId) {
     return mergedGardens.filter(garden =>
       testNameFilter(debouncedNameFilter, garden)
     )
-  }, [chainId, debouncedNameFilter, gardens, gardensMetadata])
+  }, [debouncedNameFilter, gardens, gardensMetadata])
 }
 
 function useGardensMetadata(refetchTriger, chainId) {
@@ -101,12 +101,7 @@ function useGardensList(queryFilters, filters, chainId) {
     refetchTriger,
     chainId
   )
-  const filteredGardens = useFilteredGardens(
-    gardens,
-    gardensMetadata,
-    filters,
-    chainId
-  )
+  const filteredGardens = useFilteredGardens(gardens, gardensMetadata, filters)
 
   const reload = useCallback(() => {
     setRefetchTriger(triger => setRefetchTriger(!triger))
