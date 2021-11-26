@@ -32,8 +32,6 @@ export function useGardenData() {
   const [apps, appsStatus] = useApps()
   const { subgraphs } = getNetwork(preferredNetwork)
 
-  const { subgraphs } = getNetwork(preferredNetwork)
-
   const useAgreementHook = createAppHook(
     connectAgreement,
     getAgreementConnectorConfig(preferredNetwork).agreement
