@@ -78,7 +78,6 @@ function MainView({ children }) {
             >
               <Header onOpenPreferences={openPreferences} />
             </div>
-
             <ScrollView>
               <div
                 css={`

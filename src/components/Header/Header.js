@@ -10,7 +10,7 @@ import { useConnectedGarden } from '@providers/ConnectedGarden'
 import { useWallet } from '@providers/Wallet'
 
 import { buildGardenPath } from '@utils/routing-utils'
-import { getHoneyswapTradeTokenUrl } from '@/endpoints'
+import { getDexTradeTokenUrl } from '@/endpoints'
 import { getNetwork } from '@/networks'
 
 import defaultGardenLogo from '@assets/defaultGardenLogo.png'
@@ -162,6 +162,7 @@ function GardenNavItems({ garden }) {
   const token = garden.wrappableToken || garden.token
   const connectedGarden = useConnectedGarden()
   const forumURL = connectedGarden.forumURL
+  const { preferredNetwork } = useWallet()
 
   const handleOnGoToCovenant = useCallback(() => {
     const path = buildGardenPath(history.location, 'covenant')
@@ -182,7 +183,7 @@ function GardenNavItems({ garden }) {
         Forum
       </Link>
       <Link
-        href={getHoneyswapTradeTokenUrl(token.id)}
+        href={getDexTradeTokenUrl(preferredNetwork, token.id)}
         css={`
           text-decoration: none;
           color: ${theme.contentSecondary};
@@ -203,16 +204,6 @@ function GardenNavItems({ garden }) {
           Wiki
         </Link>
       )}
-      <Link
-        href="https://1hive.gitbook.io/gardens"
-        css={`
-          text-decoration: none;
-          color: ${theme.contentSecondary};
-          margin-left: ${4 * GU}px;
-        `}
-      >
-        Gardens docs
-      </Link>
     </>
   )
 }
