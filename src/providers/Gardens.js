@@ -17,7 +17,6 @@ import { getVoidedGardensByNetwork } from '../voided-gardens'
 import { getNetwork } from '@/networks'
 import { mergeGardenMetadata } from '@utils/garden-utils'
 import { testNameFilter } from '@utils/garden-filters-utils'
-import { getNetwork } from '@/networks'
 
 const DAOContext = React.createContext()
 
