@@ -1,5 +1,5 @@
 import isIPFS from 'is-ipfs'
-import { IPFS_ENDPOINT } from '../endpoints'
+import { IPFS_ENDPOINT } from '../endpoints.ts'
 
 const REQUEST_TIMEOUT = 60000
 

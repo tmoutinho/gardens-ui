@@ -1,4 +1,4 @@
-import { IPFS_ENDPOINT } from './endpoints'
+import { IPFS_ENDPOINT } from './endpoints.ts'
 
 export async function fetchPic(buffer) {
   try {

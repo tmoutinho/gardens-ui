@@ -3,7 +3,7 @@ import { CONTEXT_ID } from '../constants'
 import {
   BRIGHTID_1HIVE_INFO_ENDPOINT,
   BRIGHTID_VERIFICATION_ENDPOINT,
-} from '../endpoints'
+} from '../endpoints.ts'
 import {
   ERROR_CODE,
   NOT_FOUND_CODE,

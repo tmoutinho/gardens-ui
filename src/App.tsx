@@ -14,7 +14,6 @@ import { UserProvider } from './providers/User'
 import { WalletProvider } from './providers/Wallet'
 
 function App() {
-  console.log(111);
   return (
     <HashRouter>
       <Main assetsUrl="/aragon-ui/" layout={false} scrollView={false}>

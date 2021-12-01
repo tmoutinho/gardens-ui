@@ -3,7 +3,7 @@ import tweetNaclUtils from 'tweetnacl-util'
 import stringify from 'fast-json-stable-stringify'
 
 import { CONTEXT_ID } from '../constants'
-import { BRIGHTID_SUBSCRIPTION_ENDPOINT, UTC_API_ENDPOINT } from '../endpoints'
+import { BRIGHTID_SUBSCRIPTION_ENDPOINT, UTC_API_ENDPOINT } from '../endpoints.ts'
 import { NO_CONTENT } from './brightIdResponseCodes'
 import env from '../environment'
 
@@ -46,10 +46,7 @@ export async function sponsorUser(account) {
 
     const privateKeyUint8Array = tweetNaclUtils.decodeBase64(privateKey)
 
-    const signedMessageUint8Array = tweetNacl.sign.detached(
-      messageUint8Array,
-      privateKeyUint8Array
-    )
+    const signedMessageUint8Array = tweetNacl.sign.detached(messageUint8Array, privateKeyUint8Array)
 
     op.sig = tweetNaclUtils.encodeBase64(signedMessageUint8Array)
 

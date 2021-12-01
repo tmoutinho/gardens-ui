@@ -1,37 +1,26 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true
-  },
-  "extends": ["standard", "standard-react", "prettier", "prettier/react"],
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "sourceType": "module"
-  },
-  "plugins": ["prettier", "react", "react-hooks"],
-  "rules": {
-    "valid-jsdoc": "error",
-    "react/prop-types": 0,
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true,
-        "semi": false,
-        "trailingComma": "es5",
-        "bracketSpacing": true,
-        "jsxBracketSameLine": false,
-        "tabSize": 2
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "./src"
+        ],
+        "extensions": [
+          ".ts",
+          ".tsx",
+          ".native.js",
+          ".js"
+        ]
       }
-    ],
-    "react/jsx-fragments": 0,
-    "react/jsx-key": 0,
-    "react/jsx-handler-names": 0,
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "linebreak-style": ["error", "unix"]
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "no-param-reassign": 0,
+    "spaced-comment": 0
   }
 }
